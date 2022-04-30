@@ -47,14 +47,14 @@ namespace FireflyGame
         public void InitializeVertices()
         {
             var vertexData = new VertexPositionColor[] {
-            new VertexPositionColor() { Position = new Vector3(-1, 1, -1), Color = Color.Blue },  
-            new VertexPositionColor() { Position = new Vector3( 1,  1, -1), Color = Color.Green },
-            new VertexPositionColor() { Position = new Vector3(-1, -1, -1), Color = Color.LightPink },
-            new VertexPositionColor() { Position = new Vector3( 1, -1, -1), Color = Color.Turquoise },
-            new VertexPositionColor() { Position = new Vector3(-1,  1,  1), Color = Color.Blue },
-            new VertexPositionColor() { Position = new Vector3( 1,  1,  1), Color = Color.Red },
-            new VertexPositionColor() { Position = new Vector3(-1, -1,  1), Color = Color.PaleGreen },
-            new VertexPositionColor() { Position = new Vector3( 1, -1,  1), Color = Color.Cyan }
+            new VertexPositionColor() { Position = new Vector3(-0.5f, 0.5f, -0.5f), Color = Color.LightSkyBlue },  
+            new VertexPositionColor() { Position = new Vector3( 0.5f,  0.5f, -0.5f), Color = Color.PaleGreen },
+            new VertexPositionColor() { Position = new Vector3(-0.5f, -0.5f, -0.5f), Color = Color.LightPink },
+            new VertexPositionColor() { Position = new Vector3( 0.5f, -0.5f, -0.5f), Color = Color.Turquoise },
+            new VertexPositionColor() { Position = new Vector3(-0.5f,  0.5f,  0.5f), Color = Color.LightSkyBlue },
+            new VertexPositionColor() { Position = new Vector3( 0.5f,  0.5f,  0.5f), Color = Color.LightPink },
+            new VertexPositionColor() { Position = new Vector3(-0.5f, -0.5f,  0.5f), Color = Color.PaleGreen },
+            new VertexPositionColor() { Position = new Vector3( 0.5f, -0.5f,  0.5f), Color = Color.Turquoise }
         };
             vertices = new VertexBuffer(
                 game.GraphicsDevice,            // The graphics device to load the buffer on 
