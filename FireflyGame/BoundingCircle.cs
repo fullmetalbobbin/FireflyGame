@@ -18,6 +18,7 @@ namespace FireflyGame
 
         public bool WhenStarsCollide(BoundingCircle stardust)
         {
+
             return OnStar.CollisionDetection(this, stardust);
         }
     }

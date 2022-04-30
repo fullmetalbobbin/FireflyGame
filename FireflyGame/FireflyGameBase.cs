@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
 
 namespace FireflyGame
 {
@@ -10,6 +11,7 @@ namespace FireflyGame
             private GraphicsDeviceManager _graphics;
             private SpriteBatch _spriteBatch;
             private Song backgroundMusic;
+            private SoundEffect soundEffect;
 
             private Texture2D background;
             private Texture2D midground;
@@ -64,9 +66,11 @@ namespace FireflyGame
             {
                 _spriteBatch = new SpriteBatch(GraphicsDevice);
                 firefly.LoadContent(Content);
+                soundEffect = Content.Load<SoundEffect>("PowerupSoft");
                 backgroundMusic = Content.Load<Song>("Firefly4");
                 MediaPlayer.IsRepeating = true;
                 MediaPlayer.Play(backgroundMusic);
+                
 
                 // TODO: use this.Content to load your game content here
                 background = Content.Load<Texture2D>("background");
@@ -90,6 +94,7 @@ namespace FireflyGame
                 {
                     if (!star.Collected && star.StarlightBounds.WhenStarsCollide(firefly.FireflyBounds))
                     {
+                        soundEffect.Play();
                         //firefly.FireflyColor = Color.Fuchsia;
                         star.Collected = true;
                         starlightLeft--;

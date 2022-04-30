@@ -10,8 +10,8 @@ namespace FireflyGame
 {
     public class FireflySprite
     {
-        const float LINEAR_ACCELERATION = 1;
-        const float ANGULAR_ACCELERATION = 1;
+        const float LINEAR_ACCELERATION = 0.5f;
+        const float ANGULAR_ACCELERATION = 0.5f;
 
 
         //private Rectangle firelyBounds = new Rectangle(0,0, 64,64);

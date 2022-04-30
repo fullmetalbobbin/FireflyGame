@@ -35,7 +35,6 @@ namespace FireflyGame
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             if (Collected) return;
-            //spriteBatch.Draw(starlightTexture, starlightPosition, Color.Fuchsia);
             spriteBatch.Draw(starlightTexture, starlightPosition, starlightColor);
         }
     }
