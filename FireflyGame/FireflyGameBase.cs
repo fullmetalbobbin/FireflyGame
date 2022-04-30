@@ -22,6 +22,8 @@ namespace FireflyGame
             private Starlight[] starlights;
             private int starlightLeft;
 
+            Cube cube;
+
 
 
             public FireflyGameBase()
@@ -64,6 +66,7 @@ namespace FireflyGame
 
             protected override void LoadContent()
             {
+            
                 _spriteBatch = new SpriteBatch(GraphicsDevice);
                 firefly.LoadContent(Content);
                 soundEffect = Content.Load<SoundEffect>("PowerupSoft");
@@ -79,6 +82,8 @@ namespace FireflyGame
                 superground = Content.Load<Texture2D>("superground");
 
                 foreach (var star in starlights) star.LoadContent(Content);
+
+                cube = new Cube(this);
             }
 
             protected override void Update(GameTime gameTime)
@@ -100,7 +105,7 @@ namespace FireflyGame
                         starlightLeft--;
                     }
                 }
-
+            cube.Update(gameTime);
                 base.Update(gameTime);
             }
 
@@ -117,11 +122,13 @@ namespace FireflyGame
                 transform = Matrix.CreateTranslation(0, offsetY * 0.1f, 0);
                 _spriteBatch.Begin(transformMatrix: transform);
                 _spriteBatch.Draw(background, Vector2.Zero, Color.White);
+                
                 _spriteBatch.End();
 
                 transform = Matrix.CreateTranslation(0, offsetY * 0.5f, 0);
                 _spriteBatch.Begin(transformMatrix: transform);
                 _spriteBatch.Draw(midground, Vector2.Zero, Color.White);
+            cube.Draw();
                 _spriteBatch.End();
 
                 transform = Matrix.CreateTranslation(0, offsetY, 0);
@@ -135,6 +142,7 @@ namespace FireflyGame
                 _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, transformMatrix: transform);
                 _spriteBatch.Draw(superground, Vector2.Zero, Color.YellowGreen);
                 _spriteBatch.End();
+            
 
                 base.Draw(gameTime);
             }
