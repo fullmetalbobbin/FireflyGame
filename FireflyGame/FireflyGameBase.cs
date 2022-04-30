@@ -55,7 +55,7 @@ using FireflyGame.Managers;
             _graphics.PreferredBackBufferHeight = ScreenHeigth;
             _graphics.ApplyChanges();
 
-            _screenManager = new ScreenManager();
+
 
             firefly = new FireflySprite(this);
 
@@ -105,7 +105,9 @@ using FireflyGame.Managers;
             cube = new Cube(this);
 
             //screen = new SplashScreen(splashImage);
-            _screenManager.SetScreen(new SplashScreen(splashImage));
+
+            _screenManager = new ScreenManager(new IScreen[] {new SplashScreen(splashImage)});
+            _screenManager.SetScreen(ScreenType.Splash);
             _screenManager.SwitchScreen();
         }
 
@@ -174,7 +176,7 @@ using FireflyGame.Managers;
             _spriteBatch.End();
 
             //screen.Draw(_spriteBatch);
-            _screenManager.Draw(_spriteBatch);
+            _screenManager.Draw(_spriteBatch); //comment out for gameplay working 
 
             base.Draw(gameTime);
         }

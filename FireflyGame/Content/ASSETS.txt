@@ -1,4 +1,9 @@
-﻿
+﻿Content/Aksar/Akshar.tff - Designed by Tall Chai under Open Font License (https://fonts.google.com/specimen/Akshar?query=aks)
+
+Content/PowerupSoft.wav - created by Amanda Dreesen using bfxr
+
+Content/Firefly4.mps - created by Amanda Dreesen using GarageBand
+
 Content/firefly.png - created by Amanda Dreesen using PROCREATE
 
 Content/background.png - created by Amanda Dreesen using PROCREATE
@@ -7,3 +12,4 @@ Content/midground.png - created by Amanda Dreesen using PROCREATE
 
 Content/foreground.png - created by Amanda Dreesen using PROCREATE
 
+Content/superground.png - created by Amanda Dreesen using PROCREATE

@@ -8,7 +8,10 @@ namespace FireflyGame.Screens
 {
     public class SplashScreen : IScreen
     {
+        public ScreenType ScreenType => ScreenType.Splash;
+
         private Texture2D _splashImage;
+
         public SplashScreen(Texture2D splashImage)
         {
             _splashImage = splashImage;

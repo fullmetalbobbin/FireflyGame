@@ -7,6 +7,7 @@ namespace FireflyGame.Screens
 {
     public interface IScreen
     {
+        ScreenType ScreenType { get; }
         void Update(float timeElapsed);
 
         void Draw(SpriteBatch spriteBatch);

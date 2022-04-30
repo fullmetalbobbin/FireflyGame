@@ -8,8 +8,14 @@ namespace FireflyGame.Managers
 {
     public class ScreenManager
     {
+        private IReadOnlyCollection<IScreen> _screens;
         private IScreen _currentScreen;
         private IScreen _nextScreen;
+
+        public ScreenManager(IReadOnlyCollection<IScreen> screens)
+        {
+            _screens = screens;
+        }
 
         internal void Update(float timeElapsed)
         {
@@ -21,9 +27,16 @@ namespace FireflyGame.Managers
             _currentScreen?.Draw(spriteBatch);
         }
 
-        public void SetScreen(IScreen screen)
+        public void SetScreen(ScreenType screenType)
         {
-            _nextScreen = screen;
+            foreach (var screen in _screens)
+            {
+                if (screen.ScreenType == screenType)
+                {
+                    _nextScreen = screen;
+                    return;
+                }
+            }
         }
 
         public void SwitchScreen()
