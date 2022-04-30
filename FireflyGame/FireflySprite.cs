@@ -12,6 +12,7 @@ namespace FireflyGame
     {
         const float LINEAR_ACCELERATION = 0.5f;
         const float ANGULAR_ACCELERATION = 0.5f;
+        //MouseState previousMouse;
 
 
         //private Rectangle firelyBounds = new Rectangle(0,0, 64,64);
@@ -37,6 +38,7 @@ namespace FireflyGame
         {
             this.game = game;
             this.FireflyPosition = new Vector2(250, 250);
+            //this.FireflyPosition = Mouse.GetState();
             this.fireflyDirection = -Vector2.UnitY;
             this.fireflyBounds.Center = FireflyPosition;
             BlendState = BlendState.Additive;
@@ -50,6 +52,13 @@ namespace FireflyGame
 
         public void Update(GameTime gameTime)
         {
+            //MouseState currentMouse = Mouse.GetState();
+            //Vector2 mousePosition = new Vector2(currentMouse.X, currentMouse.Y);
+
+            //fireflyVelocity = mousePosition - FireflyPosition;
+            //FireflyPosition = mousePosition;
+
+            
             var keyboardState = Keyboard.GetState();
             float time = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -61,6 +70,7 @@ namespace FireflyGame
 
             if (keyboardState.IsKeyDown(Keys.Left))
             {
+                FireflyPosition -= Vector2.UnitX * time * 85;
                 fireflyAcceleration += fireflyDirection * LINEAR_ACCELERATION;
                 fireflyAngularAcceleration += ANGULAR_ACCELERATION;
             }
@@ -69,6 +79,7 @@ namespace FireflyGame
 
             if (keyboardState.IsKeyDown(Keys.Right))
             {
+                FireflyPosition += Vector2.UnitX * time * 85;
                 fireflyAcceleration += fireflyDirection * LINEAR_ACCELERATION;
                 fireflyAngularAcceleration -= ANGULAR_ACCELERATION;
             }
@@ -87,7 +98,6 @@ namespace FireflyGame
 
             var viewport = game.GraphicsDevice.Viewport;
             if (FireflyPosition.X < 0 || FireflyPosition.X > 500) FireflyPosition.X = viewport.Width;
-
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
