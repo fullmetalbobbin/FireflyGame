@@ -12,7 +12,7 @@ using FireflyGame.Managers;
     public class FireflyGameBase : Game
     {
         public static int ScreenWidth = 500;
-        public static int ScreenHeigth = 1500;
+        public static int ScreenHeigth = 1000;
 
         //private IScreen screen;
         private ScreenManager _screenManager;
@@ -33,6 +33,8 @@ using FireflyGame.Managers;
         private Starlight[] starlights;
         private int starlightLeft;
 
+        private float scrollOffset;
+
         Cube cube;
 
 
@@ -42,7 +44,7 @@ using FireflyGame.Managers;
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            _graphics.PreferredBackBufferHeight = 1500;
+            _graphics.PreferredBackBufferHeight = 1000;
             _graphics.PreferredBackBufferWidth = 500;
             _graphics.GraphicsProfile = GraphicsProfile.HiDef;
 
@@ -116,6 +118,9 @@ using FireflyGame.Managers;
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            scrollOffset += (float)gameTime.ElapsedGameTime.TotalSeconds * -250f;
+              
+
             // TODO: Add your update logic here
             var timeElapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             //screen.Update(timeElapsed);
@@ -143,7 +148,7 @@ using FireflyGame.Managers;
         {
             GraphicsDevice.Clear(Color.DimGray);
 
-            float fireflyY = MathHelper.Clamp(firefly.FireflyPosition.Y, 500, 135000);
+            float fireflyY = MathHelper.Clamp(firefly.FireflyPosition.Y, 500, 9000);
             float offsetY = 500 - fireflyY;
 
             // TODO: Add your drawing code here
@@ -151,32 +156,33 @@ using FireflyGame.Managers;
 
             Matrix transform;
 
-            transform = Matrix.CreateTranslation(0, offsetY * 0.1f, 0);
+            // Background y(t) = 0.25t
+            transform = Matrix.CreateTranslation(0, scrollOffset * 0.156f, 0);
             _spriteBatch.Begin(transformMatrix: transform);
             _spriteBatch.Draw(background, Vector2.Zero, Color.White);
                 
             _spriteBatch.End();
 
-            transform = Matrix.CreateTranslation(0, offsetY * 0.5f, 0);
+            transform = Matrix.CreateTranslation(0, scrollOffset * 0.438f, 0);
             _spriteBatch.Begin(transformMatrix: transform);
             _spriteBatch.Draw(midground, Vector2.Zero, Color.White);
-            cube.Draw();
+           // cube.Draw();
             _spriteBatch.End();
 
-            transform = Matrix.CreateTranslation(0, offsetY, 0);
+            transform = Matrix.CreateTranslation(0, scrollOffset, 0); // add scrolloset to y player
             _spriteBatch.Begin(transformMatrix: transform);
             foreach (var star in starlights) star.Draw(gameTime, _spriteBatch);
             firefly.Draw(gameTime, _spriteBatch);
             _spriteBatch.Draw(foreground, Vector2.Zero, Color.White);
             _spriteBatch.End();
 
-            transform = Matrix.CreateTranslation(0, offsetY * 1.25f, 0);
+            transform = Matrix.CreateTranslation(0, scrollOffset * 1.375f, 0);
             _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, transformMatrix: transform);
             _spriteBatch.Draw(superground, Vector2.Zero, Color.YellowGreen);
             _spriteBatch.End();
 
             //screen.Draw(_spriteBatch);
-            _screenManager.Draw(_spriteBatch); //comment out for gameplay working 
+            //_screenManager.Draw(_spriteBatch); //comment out for gameplay working 
 
             base.Draw(gameTime);
         }

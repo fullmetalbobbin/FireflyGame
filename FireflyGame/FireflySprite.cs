@@ -10,8 +10,8 @@ namespace FireflyGame
 {
     public class FireflySprite
     {
-        const float LINEAR_ACCELERATION = 0.5f;
-        const float ANGULAR_ACCELERATION = 0.5f;
+        const float LINEAR_ACCELERATION = 2.5f;
+        const float ANGULAR_ACCELERATION = 0.1f;
         //MouseState previousMouse;
 
 
