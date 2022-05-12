@@ -157,26 +157,31 @@ using FireflyGame.Managers;
             Matrix transform;
 
             // Background y(t) = 0.25t
-            transform = Matrix.CreateTranslation(0, scrollOffset * 0.156f, 0);
+            //transform = Matrix.CreateTranslation(0, scrollOffset * 0.156f, 0);
+            transform = Matrix.CreateTranslation(0, offsetY * 0.156f, 0);
             _spriteBatch.Begin(transformMatrix: transform);
             _spriteBatch.Draw(background, Vector2.Zero, Color.White);
                 
             _spriteBatch.End();
 
-            transform = Matrix.CreateTranslation(0, scrollOffset * 0.438f, 0);
+            //transform = Matrix.CreateTranslation(0, scrollOffset * 0.438f, 0);
+            transform = Matrix.CreateTranslation(0, offsetY * 0.438f, 0);
             _spriteBatch.Begin(transformMatrix: transform);
             _spriteBatch.Draw(midground, Vector2.Zero, Color.White);
            // cube.Draw();
+
             _spriteBatch.End();
 
-            transform = Matrix.CreateTranslation(0, scrollOffset, 0); // add scrolloset to y player
+            //transform = Matrix.CreateTranslation(0, scrollOffset, 0); // add scrolloset to y player
+            transform = Matrix.CreateTranslation(0, offsetY, 0);
             _spriteBatch.Begin(transformMatrix: transform);
             foreach (var star in starlights) star.Draw(gameTime, _spriteBatch);
             firefly.Draw(gameTime, _spriteBatch);
             _spriteBatch.Draw(foreground, Vector2.Zero, Color.White);
             _spriteBatch.End();
 
-            transform = Matrix.CreateTranslation(0, scrollOffset * 1.375f, 0);
+            //transform = Matrix.CreateTranslation(0, scrollOffset * 1.375f , 0);
+            transform = Matrix.CreateTranslation(0, offsetY * 1.375f, 0);
             _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, transformMatrix: transform);
             _spriteBatch.Draw(superground, Vector2.Zero, Color.YellowGreen);
             _spriteBatch.End();
