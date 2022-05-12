@@ -26,7 +26,11 @@ using FireflyGame.Managers;
         private Texture2D midground;
         private Texture2D foreground;
         private Texture2D superground;
-        private SpriteFont spriteFont;
+        private SpriteFont spriteFontAkshar;
+        private SpriteFont spriteFontMacondo;
+        private SpriteFont spriteFontDancingScriptSmall;
+        private SpriteFont spriteFontDancingScriptBig;
+        private SpriteFont spriteFontDancingScriptTiny;
 
         public Texture2D splashImage;
 
@@ -82,7 +86,6 @@ using FireflyGame.Managers;
                 new Starlight(new Vector2((float)chaos.NextDouble() * 500, (float)chaos.NextDouble() * 9000), color),
                 new Starlight(new Vector2((float)chaos.NextDouble() * 500, (float)chaos.NextDouble() * 9000), color),
                 new Starlight(new Vector2((float)chaos.NextDouble() * 500, (float)chaos.NextDouble() * 9000), color),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 500, (float)chaos.NextDouble() * 9000), color),
                 new Starlight(new Vector2((float)chaos.NextDouble() * 500, (float)chaos.NextDouble() * 9000), color)
                 };
             starlightLeft = starlights.Length;
@@ -107,7 +110,11 @@ using FireflyGame.Managers;
             midground = Content.Load<Texture2D>("midground");
             foreground = Content.Load<Texture2D>("foreground");
             superground = Content.Load<Texture2D>("superground");
-            spriteFont = Content.Load<SpriteFont>("akshar");
+            spriteFontAkshar = Content.Load<SpriteFont>("akshar");
+            spriteFontMacondo = Content.Load<SpriteFont>("macondo");
+            spriteFontDancingScriptSmall = Content.Load<SpriteFont>("dancingScriptSmall");
+            spriteFontDancingScriptBig = Content.Load<SpriteFont>("dancingScriptBig");
+            spriteFontDancingScriptTiny = Content.Load<SpriteFont>("dancingScriptTiny");
 
             var splashImage = Content.Load<Texture2D>("background");
 
@@ -197,7 +204,9 @@ using FireflyGame.Managers;
             _spriteBatch.End();
 
             _spriteBatch.Begin();
-            _spriteBatch.DrawString(spriteFont, $"starlight - {starlightCollected}", new Vector2(170, 5), Color.Salmon);
+            _spriteBatch.DrawString(spriteFontDancingScriptBig, $"Firefly", new Vector2(170, 10), Color.Salmon);
+            _spriteBatch.DrawString(spriteFontDancingScriptSmall, $"starlight - {starlightCollected}", new Vector2(160,930), Color.Salmon);
+            _spriteBatch.DrawString(spriteFontDancingScriptTiny, $"{starlightLeft} remain", new Vector2(200, 970), Color.Salmon);
             _spriteBatch.End();
 
             //screen.Draw(_spriteBatch);

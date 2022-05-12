@@ -1,8 +1,21 @@
-﻿Content/Aksar/Akshar.tff - Designed by Tall Chai under Open Font License (https://fonts.google.com/specimen/Akshar?query=aks)
+﻿
+FONTS
+
+Content/Aksar/Akshar.tff - Designed by Tall Chai under Open Font License (https://fonts.google.com/specimen/Akshar?query=aks)
+
+Content/Macondo/Macondo.tff - Designed by John Vargas Beltran under Open Font License (https://fonts.google.com/specimen/Macondo#standard-styles)
+
+Content/Dancing_Script/Dancing_Script.tff - Deisgned by Impallari Type under Open Font License (https://fonts.google.com/specimen/Dancing+Script#standard-styles)
+
+
+SOUNDS
 
 Content/PowerupSoft.wav - created by Amanda Dreesen using bfxr
 
 Content/Firefly4.mps - created by Amanda Dreesen using GarageBand
+
+
+ART
 
 Content/firefly.png - created by Amanda Dreesen using PROCREATE
 
@@ -13,3 +26,7 @@ Content/midground.png - created by Amanda Dreesen using PROCREATE
 Content/foreground.png - created by Amanda Dreesen using PROCREATE
 
 Content/superground.png - created by Amanda Dreesen using PROCREATE
+
+Content/loadingSplash.png - created by Amanda Dreesen using PROCREATE
+
+Content/titleSplash.png - created by Amanda Dreesen using PROCREATE

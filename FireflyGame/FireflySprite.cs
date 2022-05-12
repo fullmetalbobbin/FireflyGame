@@ -65,8 +65,8 @@ namespace FireflyGame
             Vector2 fireflyAcceleration = new Vector2(0, 0);
             float fireflyAngularAcceleration = 0;
 
-            if (keyboardState.IsKeyDown(Keys.Up)) FireflyPosition -= Vector2.UnitY * time * 85;
-            if (keyboardState.IsKeyDown(Keys.Down)) FireflyPosition += Vector2.UnitY * time * 125;
+            if (keyboardState.IsKeyDown(Keys.Up)) FireflyPosition -= Vector2.UnitY * time * 125;
+            if (keyboardState.IsKeyDown(Keys.Down)) FireflyPosition += Vector2.UnitY * time * 135;
 
             if (keyboardState.IsKeyDown(Keys.Left))
             {

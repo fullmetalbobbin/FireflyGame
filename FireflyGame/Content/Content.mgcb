@@ -18,7 +18,7 @@
 /processor:FontDescriptionProcessor
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
-/build:akshar.spritefont;akshar
+/build:akshar.spritefont
 
 #begin background.png
 /importer:TextureImporter
@@ -31,6 +31,27 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:background.png
+
+#begin dancingScriptBig.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:dancingScriptBig.spritefont
+
+#begin dancingScriptSmall.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:dancingScriptSmall.spritefont
+
+#begin dancingScriptTiny.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:dancingScriptTiny.spritefont
 
 #begin firefly.png
 /importer:TextureImporter
@@ -73,6 +94,13 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:loadingSplash.png
+
+#begin macondo.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:macondo.spritefont
 
 #begin midground.png
 /importer:TextureImporter
