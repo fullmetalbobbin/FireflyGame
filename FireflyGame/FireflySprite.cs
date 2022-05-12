@@ -11,7 +11,7 @@ namespace FireflyGame
     public class FireflySprite
     {
         const float LINEAR_ACCELERATION = 2.5f;
-        const float ANGULAR_ACCELERATION = 0.1f;
+        const float ANGULAR_ACCELERATION = 0.05f;
         //MouseState previousMouse;
 
 
@@ -65,12 +65,12 @@ namespace FireflyGame
             Vector2 fireflyAcceleration = new Vector2(0, 0);
             float fireflyAngularAcceleration = 0;
 
-            if (keyboardState.IsKeyDown(Keys.Up) || keyboardState.IsKeyDown(Keys.W)) FireflyPosition -= Vector2.UnitY * time * 125;
-            if (keyboardState.IsKeyDown(Keys.Down) || keyboardState.IsKeyDown(Keys.S)) FireflyPosition += Vector2.UnitY * time * 135;
+            if (keyboardState.IsKeyDown(Keys.Up) || keyboardState.IsKeyDown(Keys.W)) FireflyPosition -= Vector2.UnitY * time * 145;
+            if (keyboardState.IsKeyDown(Keys.Down) || keyboardState.IsKeyDown(Keys.S)) FireflyPosition += Vector2.UnitY * time * 145;
 
             if (keyboardState.IsKeyDown(Keys.Left) || keyboardState.IsKeyDown(Keys.A))
             {
-                FireflyPosition -= Vector2.UnitX * time * 85;
+                FireflyPosition -= Vector2.UnitX * time * 120;
                 fireflyAcceleration += fireflyDirection * LINEAR_ACCELERATION;
                 fireflyAngularAcceleration += ANGULAR_ACCELERATION;
             }
@@ -79,7 +79,7 @@ namespace FireflyGame
 
             if (keyboardState.IsKeyDown(Keys.Right) || keyboardState.IsKeyDown(Keys.D))
             {
-                FireflyPosition += Vector2.UnitX * time * 85;
+                FireflyPosition += Vector2.UnitX * time * 120;
                 fireflyAcceleration += fireflyDirection * LINEAR_ACCELERATION;
                 fireflyAngularAcceleration -= ANGULAR_ACCELERATION;
             }
@@ -97,7 +97,11 @@ namespace FireflyGame
             fireflyBounds.Center = FireflyPosition;
 
             var viewport = game.GraphicsDevice.Viewport;
-            if (FireflyPosition.X < 0 || FireflyPosition.X > 500) FireflyPosition.X = viewport.Width;
+            if (FireflyPosition.X < 0 ) FireflyPosition.X = viewport.Width;
+            if (FireflyPosition.X > 500) FireflyPosition.X = 0;
+            //if (FireflyPosition.Y < 0 ) FireflyPosition.Y = 0;
+            //if (FireflyPosition.Y > 9000) FireflyPosition.Y = viewport.Height;
+            //if (FireflyPosition.X < 0 || FireflyPosition.X > 500) FireflyPosition.X = FireflyPosition.X * -1;
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
