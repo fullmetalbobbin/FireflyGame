@@ -33,7 +33,7 @@ using FireflyGame.Managers;
         private Starlight[] starlights;
         private int starlightLeft;
 
-        private float scrollOffset;
+        //private float scrollOffset;
 
         Cube cube;
 
@@ -62,10 +62,15 @@ using FireflyGame.Managers;
             firefly = new FireflySprite(this);
 
             //Components.Add("firefly");
-            Color color = Color.Fuchsia;
+            Color color = Color.HotPink;
             System.Random chaos = new System.Random();
             starlights = new Starlight[]
                 {
+                new Starlight(new Vector2((float)chaos.NextDouble() * 500, (float)chaos.NextDouble() * 9000), color),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 500, (float)chaos.NextDouble() * 9000), color),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 500, (float)chaos.NextDouble() * 9000), color),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 500, (float)chaos.NextDouble() * 9000), color),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 500, (float)chaos.NextDouble() * 9000), color),
                 new Starlight(new Vector2((float)chaos.NextDouble() * 500, (float)chaos.NextDouble() * 9000), color),
                 new Starlight(new Vector2((float)chaos.NextDouble() * 500, (float)chaos.NextDouble() * 9000), color),
                 new Starlight(new Vector2((float)chaos.NextDouble() * 500, (float)chaos.NextDouble() * 9000), color),
@@ -118,7 +123,7 @@ using FireflyGame.Managers;
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            scrollOffset += (float)gameTime.ElapsedGameTime.TotalSeconds * -250f;
+            //scrollOffset += (float)gameTime.ElapsedGameTime.TotalSeconds * -250f;
               
 
             // TODO: Add your update logic here
@@ -148,7 +153,7 @@ using FireflyGame.Managers;
         {
             GraphicsDevice.Clear(Color.DimGray);
 
-            float fireflyY = MathHelper.Clamp(firefly.FireflyPosition.Y, 500, 9000);
+            float fireflyY = MathHelper.Clamp(firefly.FireflyPosition.Y, 500, 8000);
             float offsetY = 500 - fireflyY;
 
             // TODO: Add your drawing code here
