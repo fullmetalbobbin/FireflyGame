@@ -18,7 +18,7 @@
 /processor:FontDescriptionProcessor
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
-/build:akshar.spritefont
+/build:akshar.spritefont;akshar
 
 #begin background.png
 /importer:TextureImporter

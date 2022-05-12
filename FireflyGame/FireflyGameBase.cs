@@ -26,12 +26,14 @@ using FireflyGame.Managers;
         private Texture2D midground;
         private Texture2D foreground;
         private Texture2D superground;
+        private SpriteFont spriteFont;
 
         public Texture2D splashImage;
 
         private FireflySprite firefly;
         private Starlight[] starlights;
         private int starlightLeft;
+        private int starlightCollected;
 
         //private float scrollOffset;
 
@@ -84,6 +86,7 @@ using FireflyGame.Managers;
                 new Starlight(new Vector2((float)chaos.NextDouble() * 500, (float)chaos.NextDouble() * 9000), color)
                 };
             starlightLeft = starlights.Length;
+            starlightCollected = 0;
 
             base.Initialize();
         }
@@ -104,6 +107,7 @@ using FireflyGame.Managers;
             midground = Content.Load<Texture2D>("midground");
             foreground = Content.Load<Texture2D>("foreground");
             superground = Content.Load<Texture2D>("superground");
+            spriteFont = Content.Load<SpriteFont>("akshar");
 
             var splashImage = Content.Load<Texture2D>("background");
 
@@ -142,6 +146,7 @@ using FireflyGame.Managers;
                     //firefly.FireflyColor = Color.Fuchsia;
                     star.Collected = true;
                     starlightLeft--;
+                    starlightCollected++;
                 }
             }
             cube.Update(gameTime);
@@ -189,6 +194,10 @@ using FireflyGame.Managers;
             transform = Matrix.CreateTranslation(0, offsetY * 1.375f, 0);
             _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, transformMatrix: transform);
             _spriteBatch.Draw(superground, Vector2.Zero, Color.YellowGreen);
+            _spriteBatch.End();
+
+            _spriteBatch.Begin();
+            _spriteBatch.DrawString(spriteFont, $"starlight - {starlightCollected}", new Vector2(170, 5), Color.Salmon);
             _spriteBatch.End();
 
             //screen.Draw(_spriteBatch);
