@@ -17,6 +17,8 @@ Content/Firefly4.mps - created by Amanda Dreesen using GarageBand
 
 ART
 
+Content/particle.png - created by Nathan Bean for CIS580 tutorial and released into the public domain.
+
 Content/firefly.png - created by Amanda Dreesen using PROCREATE
 
 Content/background.png - created by Amanda Dreesen using PROCREATE

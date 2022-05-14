@@ -9,7 +9,7 @@ using FireflyGame.Managers;
 
     namespace FireflyGame
     {
-    public class FireflyGameBase : Game
+    public class FireflyGameBase : Game//, IPixieDustEmitter
     {
         public static int ScreenWidth = 500;
         public static int ScreenHeigth = 1000;
@@ -42,8 +42,12 @@ using FireflyGame.Managers;
 
         //private float scrollOffset;
 
-        Cube cube;
+        //Cube cube;
 
+
+        //MouseState _previousMouseState;
+        //public Vector2 Position { get; set; }
+        //public Vector2 Velocity { get; set; }
 
 
         public FireflyGameBase()
@@ -75,51 +79,56 @@ using FireflyGame.Managers;
             System.Random chaos = new System.Random();
             starlights = new Starlight[]
                 {
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color1),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color1),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color1),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color1),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color1),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color1),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color1),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color1),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color1),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color1),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color1),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color1),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color1),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color1),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color2),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color2),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color2),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color2),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color2),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color2),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color2),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color2),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color2),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color2),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color2),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color2),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color2),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color2),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color3),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color3),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color3),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color3),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color3),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color3),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color3),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color3),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color3),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color3),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color3),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color3),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color3),
-                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8970), color3)
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color1),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color1),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color1),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color1),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color1),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color1),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color1),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color1),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color1),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color1),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color1),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color1),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color1),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color1),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color2),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color2),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color2),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color2),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color2),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8500), color2),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8500), color2),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color2),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color2),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color2),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color2),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color2),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color2),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color2),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color3),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color3),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color3),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color3),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color3),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color3),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color3),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color3),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color3),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color3),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color3),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color3),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color3),
+                new Starlight(new Vector2((float)chaos.NextDouble() * 470, (float)chaos.NextDouble() * 8900), color3)
                 };
             starlightLeft = starlights.Length;
             starlightCollected = 0;
+
+
+            //PixieDustSystem _pixieDusts = new PixieDustSystem(this, this.firefly);
+            //PixieDustSystem _pixieDusts = new PixieDustSystem(this, this);
+            //Components.Add(_pixieDusts);
 
             base.Initialize();
         }
@@ -150,7 +159,7 @@ using FireflyGame.Managers;
 
             foreach (var star in starlights) star.LoadContent(Content);
 
-            cube = new Cube(this);
+            //cube = new Cube(this);
 
             //screen = new SplashScreen(splashImage);
 
@@ -165,22 +174,27 @@ using FireflyGame.Managers;
                 Exit();
 
             //scrollOffset += (float)gameTime.ElapsedGameTime.TotalSeconds * -250f;
-              
+
 
             // TODO: Add your update logic here
+            /*
+            MouseState currentMouseState = Mouse.GetState();
+            Vector2 mousePosition = new Vector2(currentMouseState.X, currentMouseState.Y);
+            */
+            Vector2 currentPosition = firefly.FireflyPosition;
+        
+
             var timeElapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             //screen.Update(timeElapsed);
             _screenManager.Update(timeElapsed);
 
             firefly.Update(gameTime);
 
-            //firefly.FireflyColor = Color.White;
             foreach (var star in starlights)
             {
                 if (!star.Collected && star.StarlightBounds.WhenStarsCollide(firefly.FireflyBounds))
                 {
                     soundEffect.Play();
-                    //firefly.FireflyColor = Color.Fuchsia;
                     star.Collected = true;
                     starlightLeft--;
                     starlightCollected++;
@@ -192,6 +206,25 @@ using FireflyGame.Managers;
             }
             //cube.Update(gameTime);
 
+            //Velocity = firefly.FireflyVelocity;
+            //
+            /*
+            Velocity = firefly.FireflyPosition - Position;
+            Position = new Vector2(firefly.FireflyPosition.X - 32, firefly.FireflyPosition.Y - 80);
+            //Position = firefly.FireflyPosition;
+            
+            Velocity = mousePosition - Position;
+            Position = new Vector2(mousePosition.X - 32, mousePosition.Y - 80);
+            */
+            //Vector2 currentPositon = firefly.FireflyPosition -= Vector2.UnitY;
+            //Velocity -= Vector2.UnitY;
+            //Velocity -= Vector2.Zero;
+            //Velocity = currentPositon - Position;
+            //Velocity = currentPosition - Position;
+            //Velocity = new Vector2(0,0);
+            //Position = new Vector2(firefly.FireflyPosition.X - 32, firefly.FireflyPosition.Y - 80);
+
+          
             base.Update(gameTime);
         }
 
@@ -199,7 +232,7 @@ using FireflyGame.Managers;
         {
             GraphicsDevice.Clear(Color.DimGray);
 
-            float fireflyY = MathHelper.Clamp(firefly.FireflyPosition.Y, 500, 8000);
+            float fireflyY = MathHelper.Clamp(firefly.FireflyPosition.Y, 500, 8400);
             float offsetY = 500 - fireflyY;
 
             // TODO: Add your drawing code here
@@ -226,9 +259,10 @@ using FireflyGame.Managers;
             //transform = Matrix.CreateTranslation(0, scrollOffset, 0); // add scrolloset to y player
             transform = Matrix.CreateTranslation(0, offsetY, 0);
             _spriteBatch.Begin(transformMatrix: transform);
+            _spriteBatch.Draw(foreground, Vector2.Zero, Color.White);
             foreach (var star in starlights) star.Draw(gameTime, _spriteBatch);
             firefly.Draw(gameTime, _spriteBatch);
-            _spriteBatch.Draw(foreground, Vector2.Zero, Color.White);
+            
             _spriteBatch.End();
 
             //transform = Matrix.CreateTranslation(0, scrollOffset * 1.375f , 0);
